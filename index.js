@@ -1,18 +1,18 @@
-let RemoteAnimation = require('./RemoteAnimation')
-const hsl2rgb = require('.hsl-to-rgb')
+var RemoteAnimation = require('./lib/RemoteAnimation')
+var hsl2rgb = require('./hsl-to-rgb')
 
-const REMOTE_URL = 'ws://192.168.1.101:8899'
+var REMOTE_URL = 'ws://192.168.1.101:8899'
 //const REMOTE_URL = 'ws://127.0.0.1:8899'
 
-let frame_count = 60
-let fps = 30
+var frame_count = 60
+var fps = 30
 
-const anim = new RemoteAnimation(
+var anim = new RemoteAnimation(
     frame_count,
     fps,
     function outer (frameIndex, pixel, index) {
-        let hue = Math.round((index / 58) * 360)
-        let step = hue + frameIndex
+        var hue = Math.round((index / 58) * 360)
+        var step = hue + frameIndex
 
         if (step > 360){
             step = step - 360
